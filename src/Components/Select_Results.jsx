@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
 import { SampleResults, SampleRecipe } from "./Data";
 
@@ -9,17 +9,17 @@ import { SampleResults, SampleRecipe } from "./Data";
 //
 
 function Select_results({ handleToggle, toggle, id, setRecipeURL, recipeURL }) {
-  useEffect(() => {
-    fetch(
-      // type, cuisine needed
-      `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_API_KEY}&instructionsRequired=true`
-    )
-      .then((response) => response.json())
-      .then((jsonData) => {
-        setRecipeURL(jsonData.sourceUrl);
-        console.log(jsonData.sourceUrl);
-      });
-  }, [toggle]);
+  // useEffect(() => {
+  //   fetch(
+  //     // type, cuisine needed
+  //     // `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_API_KEY}&instructionsRequired=true`
+  //   )
+  //     .then((response) => response.json())
+  //     .then((jsonData) => {
+  //       setRecipeURL(jsonData.sourceUrl);
+  //       console.log(jsonData.sourceUrl);
+  //     });
+  // }, [toggle]);
 
   useEffect(() => {
     window.open(recipeURL, "_blank");
