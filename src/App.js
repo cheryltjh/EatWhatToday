@@ -1,23 +1,53 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { Route } from "react-router-dom";
+import Home from "./Components/Home";
+import NavBar from "./Components/NavBar";
+import React, { useState } from "react";
+import { Link } from "react-router-dom";
+import Selectcuisine from "./Components/Select_Cuisine";
+import Selecttype from "./Components/Select_Type";
+import Selectresults from "./Components/Select_Results";
 
 function App() {
+  const [toggle, setToggle] = useState(false);
+  const [id, setId] = useState();
+  const [recipeURL, setRecipeURL] = useState();
+
+  const handleToggle = (e) => {
+    setToggle(!toggle);
+    const selectedID = e.currentTarget.parentNode.getAttribute("class");
+    setId(selectedID);
+  };
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <NavBar />
+      <Route exact path="/">
+        <Home />
+        <section className="controls">
+          <Link to="/select_cuisine">
+            <button>Get Your Recipes!</button>
+          </Link>
+        </section>
+        {/* <SelectCuisine mealData={mealData} /> */}
+      </Route>
+      <Route path="/select_cuisine">
+        <Selectcuisine />
+      </Route>
+      <Route path="/select_type">
+        <Selecttype />
+      </Route>
+      <Route path="/select_results">
+        <Selectresults
+          handleToggle={handleToggle}
+          id={id}
+          toggle={toggle}
+          setRecipeURL={setRecipeURL}
+          recipeURL={recipeURL}
+        />
+      </Route>
+
+      {/* {mealData && <SelectCuisine mealData={mealData} />} */}
     </div>
   );
 }
