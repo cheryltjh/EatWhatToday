@@ -7,6 +7,7 @@ import { Link } from "react-router-dom";
 import Selectcuisine from "./Components/Select_Cuisine";
 import Selecttype from "./Components/Select_Type";
 import Selectresults from "./Components/Select_Results";
+import RandomMeal from "./Components/RandomMeal";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -17,6 +18,7 @@ function App() {
     setToggle(!toggle);
     const selectedID = e.currentTarget.parentNode.getAttribute("class");
     setId(selectedID);
+    console.log(id);
   };
 
   return (
@@ -29,7 +31,9 @@ function App() {
             <button>Get Your Recipes!</button>
           </Link>
         </section>
-        {/* <SelectCuisine mealData={mealData} /> */}
+        <Route path="/RandomMeal">
+          <RandomMeal />
+        </Route>
       </Route>
       <Route path="/select_cuisine">
         <Selectcuisine />
@@ -46,8 +50,6 @@ function App() {
           recipeURL={recipeURL}
         />
       </Route>
-
-      {/* {mealData && <SelectCuisine mealData={mealData} />} */}
     </div>
   );
 }
