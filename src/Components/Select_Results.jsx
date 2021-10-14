@@ -30,7 +30,7 @@ function Select_results({
         setRecipeURL(Data.sourceUrl);
         console.log(Data.sourceUrl);
       });
-  }, [toggle]);
+  }, [toggle, setRecipeURL, url]);
 
   useEffect(() => {
     window.open(recipeURL, "_blank");
@@ -51,25 +51,25 @@ function Select_results({
       </Link>
       </Box>
       <Grid container spacing={4}>
-        {recipe.results.map((object, index) => (
+        {recipe.results.map((cuisineType, index) => (
           <Grid item key={index} xs={12} sm={6} md={4} lg={4}>
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
                   height="300"
-                  image={object.image}
+                  image={cuisineType.image}
                   alt=""
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="div">
-                    {object.title}
+                    {cuisineType.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-            {object.summary}
+            {cuisineType.summary}
           </Typography>
                 </CardContent>
-                <Button size="big" onClick={() => handleToggle(object)}>
+                <Button size="big" onClick={() => handleToggle(cuisineType)}>
                   Get recipe!
                 </Button>
               </CardActionArea>

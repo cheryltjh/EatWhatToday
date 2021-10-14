@@ -1,6 +1,5 @@
 import React, { useRef } from "react";
 import { Link } from "react-router-dom";
-// import { Cuisines } from "./Data";
 import { Button, Box, Container } from "@mui/material";
 
 function Select_cuisine({ setchosenCuisine }) {

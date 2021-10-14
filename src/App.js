@@ -40,7 +40,6 @@ function App() {
       .then((response) => response.json())
       .then((Data) => {
         setRecipe(Data);
-        console.log(Data);
       });
   }, [toggleType]);
 
