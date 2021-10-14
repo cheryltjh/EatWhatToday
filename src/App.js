@@ -8,32 +8,8 @@ import Selectcuisine from "./Components/Select_Cuisine";
 import Selecttype from "./Components/Select_Type";
 import Selectresults from "./Components/Select_Results";
 import RandomMeal from "./Components/RandomMeal";
-import styled from "styled-components";
 import { sampleRandom } from "./Components/Data";
-
-const Button = styled.button`
-  padding: 3px 3px;
-  margin: 6px 2px;
-  border: 1px solid black;
-  border-radius: 6px;
-  box-sizing: border-box;
-  cursor: pointer;
-  font-size: 16px;
-  @media only screen and (max-width: 600px) {
-    border: 1px solid black;
-    border-radius: 6px;
-    box-sizing: border-box;
-    cursor: pointer;
-    font-size: 14px;
-    position: relative;
-  }
-  &:hover {
-    background-color: rgb(228, 228, 228);
-  }
-  &:active {
-    background-color: grey;
-  }
-`;
+import { Button } from "@mui/material";
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -71,13 +47,14 @@ function App() {
   }, [toggleType]);
 
   return (
+    <>
     <div className="App">
       <NavBar handleRandom={handleRandom}/>
       <Route exact path="/">
         <Home />
         <section className="controls">
           <Link to="/select_cuisine">
-            <Button>Get Your Recipes!</Button>
+            <Button variant="Outlined" style={{color:'black'}} sx={{margin: 10}}>Get Your Recipes!</Button>
           </Link>
         </section>
       </Route>
@@ -105,6 +82,7 @@ function App() {
         />
       </Route>
     </div>
+    </>
   );
 }
 
