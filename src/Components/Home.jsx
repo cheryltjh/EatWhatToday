@@ -5,7 +5,7 @@ import { Container } from "@mui/material";
 function Home() {
   return (
     <>
-    <Container maxWidth="sm" sx={{p: 10}}>
+    <Container maxWidth="sm" sx={{p: 5}}>
       <Typography variant="h5" align="center" width="600px">
       <h1>Don't know what to eat?</h1>
     </Typography>

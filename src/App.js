@@ -10,6 +10,7 @@ import Selectresults from "./Components/Select_Results";
 import RandomMeal from "./Components/RandomMeal";
 import { sampleRandom } from "./Components/Data";
 import { Button } from "@mui/material";
+import { createTheme } from '@mui/material/styles';
 
 function App() {
   const [toggle, setToggle] = useState(false);
@@ -54,7 +55,7 @@ function App() {
         <Home />
         <section className="controls">
           <Link to="/select_cuisine">
-            <Button variant="Outlined" style={{color:'black'}} sx={{margin: 10}}>Get Your Recipes!</Button>
+            <Button variant="outlined" color="warning" sx={{margin: 3}}>Get Your Recipes!</Button>
           </Link>
         </section>
       </Route>
