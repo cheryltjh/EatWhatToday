@@ -1,8 +1,5 @@
 import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
-import { SampleResults, SampleRecipe } from "./Data";
-// import Select_cuisine from "./Select_Cuisine";
-// import Select_type from "./Select_Type";
 
 function Select_results({ recipe, handleToggle, toggle, id, setRecipeURL, recipeURL }) {
   // type, cuisine needed
@@ -11,11 +8,11 @@ function Select_results({ recipe, handleToggle, toggle, id, setRecipeURL, recipe
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
-      .then((jsonData) => {
-        setRecipeURL(jsonData.sourceUrl);
-        console.log(jsonData.sourceUrl);
+      .then((Data) => {
+        setRecipeURL(Data.sourceUrl);
+        console.log(Data.sourceUrl);
       });
-  }, [toggle, id, url]);
+  }, [toggle]);
 
   useEffect(() => {
     window.open(recipeURL, "_blank");

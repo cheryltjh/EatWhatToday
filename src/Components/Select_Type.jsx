@@ -1,4 +1,4 @@
-import React, { useState, useRef } from "react";
+import React, { useRef } from "react";
 import { Link } from "react-router-dom";
 import { Mealtype } from "./Data";
 
@@ -15,6 +15,7 @@ function Select_type({setChosenType,setToggleType,toggleType}) {
   const handleToggleType = (e) => {
     setToggleType(!toggleType);
   };
+  
   const allTypes = Mealtype.map((element) => {
     return <option value={element} onClick={handleSubmit}>{element}</option>;
   });

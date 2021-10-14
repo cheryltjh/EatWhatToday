@@ -31,8 +31,8 @@ function App() {
   const handleRandom = () => {
     fetch("https://www.themealdb.com/api/json/v1/1/random.php")
       .then((response) => response.json())
-      .then((jsonData) => {
-        setRandomMeal(jsonData);
+      .then((Data) => {
+        setRandomMeal(Data);
       });
   }
   const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${chosenCuisine}&type=${chosenType}&apiKey=${process.env.REACT_APP_API_KEY}`;
@@ -40,9 +40,9 @@ function App() {
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
-      .then((jsonData) => {
-        setRecipe(jsonData);
-        console.log(jsonData);
+      .then((Data) => {
+        setRecipe(Data);
+        console.log(Data);
       });
   }, [toggleType]);
 

@@ -1,6 +1,4 @@
-import React, { useEffect } from "react";
-import { Link } from "react-router-dom";
-import { SampleResults, SampleRecipe } from "./Data";
+import React from "react";
 
 function RandomMeal({ randomMeal }) {
 
