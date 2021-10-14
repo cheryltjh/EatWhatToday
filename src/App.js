@@ -8,8 +8,32 @@ import Selectcuisine from "./Components/Select_Cuisine";
 import Selecttype from "./Components/Select_Type";
 import Selectresults from "./Components/Select_Results";
 import RandomMeal from "./Components/RandomMeal";
+import styled from "styled-components";
 import { sampleRandom } from "./Components/Data";
-import { Button } from "@mui/material"
+
+const Button = styled.button`
+  padding: 3px 3px;
+  margin: 6px 2px;
+  border: 1px solid black;
+  border-radius: 6px;
+  box-sizing: border-box;
+  cursor: pointer;
+  font-size: 16px;
+  @media only screen and (max-width: 600px) {
+    border: 1px solid black;
+    border-radius: 6px;
+    box-sizing: border-box;
+    cursor: pointer;
+    font-size: 14px;
+    position: relative;
+  }
+  &:hover {
+    background-color: rgb(228, 228, 228);
+  }
+  &:active {
+    background-color: grey;
+  }
+`;
 
 function App() {
   const [toggle, setToggle] = useState(false);
