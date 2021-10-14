@@ -10,8 +10,8 @@ import RandomMeal from "./Components/RandomMeal";
 import { sampleRandom } from "./Components/Data";
 
 function App() {
-  const [toggle, setToggle] = useState(false);
   const [toggleType, setToggleType] = useState(false);
+  const [toggle, setToggle] = useState (false);
   const [id, setId] = useState();
   const [recipeURL, setRecipeURL] = useState();
   const [recipe, setRecipe] = useState();
@@ -19,11 +19,10 @@ function App() {
   const [chosenType, setChosenType] = useState();
   const [randomMeal, setRandomMeal] = useState(sampleRandom);
 
-  const handleToggle = (e) => {
+  const handleToggle = (event) => {
     setToggle(!toggle);
-    // const selectedID = e.currentTarget.parentNode.getAttribute("class");
-    // setId(selectedID);
-    console.log(e);
+    const selectedID = event.CurrentTarget.getAttribute("class");
+    setId(selectedID);
   };
 
   const handleRandom = () => {
@@ -68,7 +67,6 @@ function App() {
             recipe={recipe}
             handleToggle={handleToggle}
             id={id}
-            toggle={toggle}
             setRecipeURL={setRecipeURL}
             recipeURL={recipeURL}
           />

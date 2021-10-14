@@ -20,7 +20,7 @@ function Select_results({
   setRecipeURL,
   recipeURL,
 }) {
-  // type, cuisine needed
+  
   const url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_API_KEY}&instructionsRequired=true`;
 
   useEffect(() => {
@@ -30,11 +30,7 @@ function Select_results({
         setRecipeURL(Data.sourceUrl);
         console.log(Data.sourceUrl);
       });
-  }, [toggle, setRecipeURL, url]);
-
-  useEffect(() => {
-    window.open(recipeURL, "_blank");
-  }, [recipeURL]);
+  }, [toggle]);
 
   return (
     <Container sx={{ py: 1 }} maxWidth="md">
@@ -51,25 +47,25 @@ function Select_results({
       </Link>
       </Box>
       <Grid container spacing={4}>
-        {recipe.results.map((cuisineType, index) => (
+        {recipe.results.map((both, index) => (
           <Grid item key={index} xs={12} sm={6} md={4} lg={4}>
             <Card sx={{ maxWidth: 345 }}>
               <CardActionArea>
                 <CardMedia
                   component="img"
                   height="300"
-                  image={cuisineType.image}
+                  image={both.image}
                   alt=""
                 />
                 <CardContent>
                   <Typography gutterBottom variant="h6" component="div">
-                    {cuisineType.title}
+                    {both.title}
                   </Typography>
                   <Typography variant="body2" color="text.secondary">
-            {cuisineType.summary}
+            {both.summary}
           </Typography>
                 </CardContent>
-                <Button size="big" onClick={() => handleToggle(cuisineType)}>
+                <Button size="big" onClick={() => handleToggle(both)}>
                   Get recipe!
                 </Button>
               </CardActionArea>

@@ -15,26 +15,23 @@ function Select_type({ setChosenType, setToggleType, toggleType }) {
   };
 
   const Mealtype = [
-    "Main Course",
-    "Side Dish",
-    "Dessert",
     "Appetizer",
-    "Salad",
     "Bread",
     "Breakfast",
-    "Soup",
-    "Beverage",
-    "Sauce",
-    "Marinade",
+    "Dessert",
     "Fingerfood",
+    "Main Course",
+    "Salad",
+    "Soup",
+    "Side Dish",
+    "Sauce",
     "Snack",
-    "Drink",
   ];
 
-  const allTypes = Mealtype.map((element) => {
+  const allTypes = Mealtype.map((cuisines) => {
     return (
-      <option value={element} onClick={handleSubmit}>
-        {element}
+      <option value={cuisines} onClick={handleSubmit}>
+        {cuisines}
       </option>
     );
   });

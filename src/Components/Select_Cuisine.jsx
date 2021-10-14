@@ -11,7 +11,6 @@ function Select_cuisine({ setchosenCuisine }) {
   };
 
   const Cuisines = [
-    "American",
     "British",
     "Cajun",
     "Caribbean",
@@ -37,10 +36,10 @@ function Select_cuisine({ setchosenCuisine }) {
     "Vietnamese",
   ];
 
-  const allCuisines = Cuisines.map((element) => {
+  const allCuisines = Cuisines.map((cuisine) => {
     return (
-      <option value={element} onClick={handleSubmit}>
-        {element}
+      <option value={cuisine} onClick={handleSubmit}>
+        {cuisine}
       </option>
     );
   });
