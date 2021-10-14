@@ -26,7 +26,8 @@ function RandomMeal({ randomMeal }) {
           {randomMeal.meals[0].strMeal}
           </Typography>
           <Typography variant="body2" color="text.secondary">
-          {randomMeal.meals[0].strInstructions}
+          <h3 className="font-bold">How to cook:</h3>
+          <p>{randomMeal.meals[0].strInstructions}</p>
           </Typography>
         </CardContent>
       </CardActionArea>
