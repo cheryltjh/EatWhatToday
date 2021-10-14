@@ -4,7 +4,7 @@
 Visit the site here: https://eat-what-today-leh.vercel.app/
 
 ## Description
-Returns food recipes for a person who don’t know or could not decide what to eat/cook today.
+Returns food suggestions for a person who don’t know or could not decide what to eat/cook today.
 
 ## User Story
 A user should be able to:
