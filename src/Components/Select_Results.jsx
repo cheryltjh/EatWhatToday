@@ -4,9 +4,8 @@ import { SampleResults, SampleRecipe } from "./Data";
 // import Select_cuisine from "./Select_Cuisine";
 // import Select_type from "./Select_Type";
 
-function Select_results({ handleToggle, toggle, id, setRecipeURL, recipeURL }) {
+function Select_results({ recipe, handleToggle, toggle, id, setRecipeURL, recipeURL }) {
   // type, cuisine needed
-  // const url = `https://api.spoonacular.com/recipes/complexSearch?cuisine=${allCuisine}&type=${allType}&apiKey=${process.env.REACT_APP_API_KEY}`
   const url = `https://api.spoonacular.com/recipes/${id}/information?includeNutrition=false&apiKey=${process.env.REACT_APP_API_KEY}&instructionsRequired=true`
     
   useEffect(() => {
@@ -16,25 +15,13 @@ function Select_results({ handleToggle, toggle, id, setRecipeURL, recipeURL }) {
         setRecipeURL(jsonData.sourceUrl);
         console.log(jsonData.sourceUrl);
       });
-  }, [toggle, id, setRecipeURL, url]);
+  }, [toggle, id, url]);
 
   useEffect(() => {
     window.open(recipeURL, "_blank");
   }, [recipeURL]);
 
-  //   const allResults = ((object, index) => {
-  //   return (
-  //     <>
-  //       <div key={object.id} className={object.id}>
-  //         <p key={index}>{object.title}</p>
-  //         <img src={object.image} alt="" />
-  //       <button onClick={handleToggle}> Get recipe!</button>
-  //       </div>
-  //     </>
-  //   );
-  // });
-
-  const allResults = SampleResults.results.map((object, index) => {
+  const allResults = recipe.results.map((object, index) => {
     return (
       <>
         <div key={object.id} className={object.id}>
@@ -45,8 +32,6 @@ function Select_results({ handleToggle, toggle, id, setRecipeURL, recipeURL }) {
       </>
     );
   });
-
-  console.log(SampleRecipe.sourceUrl);
 
   return (
     <>

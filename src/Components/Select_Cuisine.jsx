@@ -1,28 +1,26 @@
-// import React, { useState, useRef } from "react";
-import React from "react";
+import React, { useState, useRef } from "react";
 import { Link } from "react-router-dom";
 import { Cuisines } from "./Data";
 
-const allCuisines = Cuisines.map((element) => {
-  return <option value={element}>{element}</option>;
-});
+function Select_cuisine({ setchosenCuisine }) {
+  const inputCuisine = useRef();
 
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    setchosenCuisine(inputCuisine.current.value);
+  };
 
-function Select_cuisine() {
-//   const [addCuisine, setAddCuisine] = useState({cuisine: ""});
-//   const inputCuisine = useRef();
-
-//   const handleSubmit = (e) => {
-//     e.preventDefault();
-//     setAddCuisine({
-//       type: inputCuisine.current.value,
-//     });
-//   };
+  const allCuisines = Cuisines.map((element) => {
+    return (
+      <option value={element} onClick={handleSubmit}>
+        {element}
+      </option>
+    );
+  });
 
   return (
     <>
-      <select name="cuisine" id="cuisine" >
-      {/* <select name="cuisine" id="cuisine" ref={inputCuisine} value={allCuisines} onClick={handleSubmit} > */}
+      <select name="cuisine" id="cuisine" ref={inputCuisine}>
         {allCuisines}
       </select>
       <Link to="/select_type">
