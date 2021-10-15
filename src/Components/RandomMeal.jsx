@@ -19,15 +19,15 @@ function RandomMeal({ randomMeal }) {
         <CardMedia
           component="img"
           height="500"
-          image={randomMeal.meals[0].strMealThumb} 
+          image={randomMeal.strMealThumb} 
         />
         <CardContent>
           <Typography gutterBottom variant="h5" component="div">
-          {randomMeal.meals[0].strMeal}
+          {randomMeal.strMeal}
           </Typography>
           <Typography variant="body2" color="text.secondary">
           <h3 className="font-bold">How to cook:</h3>
-          <p>{randomMeal.meals[0].strInstructions}</p>
+          <p>{randomMeal.strInstructions}</p>
           </Typography>
         </CardContent>
       </CardActionArea>

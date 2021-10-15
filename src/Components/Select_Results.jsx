@@ -26,9 +26,9 @@ function Select_results({
   useEffect(() => {
     fetch(url)
       .then((response) => response.json())
-      .then((Data) => {
-        setRecipeURL(Data.sourceUrl);
-        console.log(Data.sourceUrl);
+      .then((response) => {
+        setRecipeURL(response.sourceUrl);
+        console.log(response.sourceUrl);
       });
   }, [toggle]);
 
